@@ -1,0 +1,42 @@
+<section id="viewEditFlight">
+    <h2>Edit existing flight</h2>
+    <form id="formEditFlight" method="put" action="#/flight/edit?id={{flight._id}}" >
+    <label>Destination:</label>
+    <input type="text" name="destination" placeholder="Destination" value="{{flight.destination}}">
+    <p class="text-danger validation-massage" id="validate-destination"></p>
+
+    <label>Origin:</label>
+    <input type="text" name="origin" placeholder="Origin" value="{{flight.origin}}">
+    <p class="text-danger validation-massage" id="validate-origin"></p>
+
+    <label>Departure Date:</label>
+    <input type="date" id="tt" name="departureDate" value="{{flight.departure}}">
+    <p class="text-danger validation-massage" id="validate-departureDate"></p>
+
+    <label>Departure Time:</label>
+    <input type="time" name="departureTime" value="{{flight.departureTime}}">
+    <p class="text-danger validation-massage" id="validate-departureTime"></p>
+
+    <label>Number of Seats:</label>
+    <input type="number" name="seats" value="{{flight.seats}}">
+    <p class="text-danger validation-massage" id="validate-seats"></p>
+
+    <label>Cost per seat:</label>
+    <input type="number" step="2" name="cost" value="{{flight.cost}}">
+    <p class="text-danger validation-massage" id="validate-cost"></p>
+
+    <label>Image:</label>
+    <input type="text" name="img" value="{{flight.image}}">
+    <p class="text-danger validation-massage" id="validate-img"></p>
+
+    <label>Is Public:</label>
+    <input type="checkbox" name="public" {{#if flight.isPublic}}checked{{/if}}>
+
+    <input type="submit" class="save-changes" value="Edit">
+    </form>
+</section>
+<script>
+    $(() => {
+        validateForm.flight('#formEditFlight')
+    });
+</script>

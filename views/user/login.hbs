@@ -1,0 +1,18 @@
+
+<section id="viewLogin">
+    <h2>Login to your account:</h2>
+    <form id="formLogin" action="#/login" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter your Email" >
+        <p class="text-danger validation-massage" id="validate-username"></p>
+
+        <label>Password:</label>
+        <input type="password" name="pass" placeholder="Enter your Password">
+        <p class="text-danger validation-massage" id="validate-pass"></p>
+
+        <input type="submit" class="login" value="Login">
+    </form>
+</section>
+<script>
+    $(()=>{ validateForm.user('#formLogin')});
+</script>

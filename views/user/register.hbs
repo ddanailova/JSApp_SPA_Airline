@@ -1,0 +1,21 @@
+
+<section id="viewRegister">
+    <h2>Create your account:</h2>
+    <form id="formRegister" action="#/register" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Username" >
+        <p class="text-danger validation-massage" id="validate-username"></p>
+
+        <label>Password:</label>
+        <input type="password" name="pass" placeholder="Password">
+        <p class="text-danger validation-massage" id="validate-pass"></p>
+
+        <label>Repeat Password:</label>
+        <input type="password" name="checkPass" placeholder="Repeat Password">
+        <p class="text-danger validation-massage" id="validate-checkPass"></p>
+        <input type="submit" class="register" value="Register">
+    </form>
+</section>
+<script>
+    $(()=>{ validateForm.user('#formRegister')});
+</script>
