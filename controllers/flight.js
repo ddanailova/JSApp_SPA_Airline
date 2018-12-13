@@ -60,6 +60,7 @@ const flight = function () {
 
     const getEdit = function (ctx) {
         let flightId = ctx.params.id;
+        storage.saveData('flightId',flightId);
         flightModel.details(flightId)
             .then(function (res) {
                 ctx.flight=res;
@@ -71,8 +72,9 @@ const flight = function () {
     };
 
     const postEdit = function (ctx) {
-
-        flightModel.edit(ctx.params)
+        let flightId = storage.getData('flightId');
+        // let flightId=ctx.params.id.replace(':','');
+        flightModel.edit(flightId, ctx.params)
             .then(function (res) {
                 notifications.showInfo('Successfully edited flight');
                 ctx.redirect(`#/flight/details?id=${res._id}`);

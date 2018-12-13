@@ -44,10 +44,9 @@ const flightModel = function () {
         return requester.remove(flightRemoveUrl);
     };
 
-    const edit = function (params) {
-        let flightEditUrl = flightsUrl + `/${params.id}`;
+    const edit = function (id, params) {
+        let flightEditUrl = flightsUrl + `/${id}`;
         let data = {
-            "_id": params.id,
             "destination": params.destination,
             "origin": params.origin,
             "departure": params.departureDate,
