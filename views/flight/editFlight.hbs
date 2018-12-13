@@ -1,6 +1,6 @@
 <section id="viewEditFlight">
     <h2>Edit existing flight</h2>
-    <form id="formEditFlight" method="put" action="#/flight/edit?id={{flight._id}}" >
+    <form id="formEditFlight" method="post" action="#/flight/edit/:{{flight._id}}" >
     <label>Destination:</label>
     <input type="text" name="destination" placeholder="Destination" value="{{flight.destination}}">
     <p class="text-danger validation-massage" id="validate-destination"></p>

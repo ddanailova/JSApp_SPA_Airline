@@ -71,6 +71,7 @@ const flight = function () {
     };
 
     const postEdit = function (ctx) {
+
         flightModel.edit(ctx.params)
             .then(function (res) {
                 notifications.showInfo('Successfully edited flight');
