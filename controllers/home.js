@@ -1,7 +1,7 @@
  const home = (function(){
     const index = function(ctx) {
         let filterFlights;
-        ////Show on the home page only the public when not logged and all when loged
+        ////Show on the home page only the public when not logged and all when logged
         // if(userModel.isAuthorized()){
         //     filterFlights = flightModel.flights(false);
         // }else{

@@ -34,15 +34,20 @@ const flight = function () {
     const details = function (ctx) {
         let flightId = ctx.params.id;
         let userInfo = storage.getData('userInfo');
-        flightModel.details(flightId)
-            .then(function (res) {
-                ctx.flight=res;
-                ctx.isPublisher = res._acl.creator === userInfo.id;
-                ctx.partial('views/flight/flightDetails.hbs');
-            })
-            .catch(function (res) {
-                notifications.handleError(res);
-            });
+
+        if(!userModel.isAuthorized()){
+            ctx.redirect('#/login')
+        }else{
+            flightModel.details(flightId)
+                .then(function (res) {
+                    ctx.flight=res;
+                    ctx.isPublisher = res._acl.creator === userInfo.id;
+                    ctx.partial('views/flight/flightDetails.hbs');
+                })
+                .catch(function (res) {
+                    notifications.handleError(res);
+                });
+        }
     };
 
     const remove = function (ctx) {

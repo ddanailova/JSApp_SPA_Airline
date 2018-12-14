@@ -24,6 +24,8 @@ li:hover{
 }
 a:hover{
     color:yellow;
+    background: cornflowerblue;
+    text-decoration: none;
 }
 nav{
     background: cornflowerblue;
@@ -341,6 +343,32 @@ h3{
     background: #F50;
 }
 
+/* My css*/
 .is-invalid {
     border: 1px solid red;
+}
+
+#container{
+    min-height: 81vh;
+}
+
+#viewMyFlights{
+    padding-bottom: 0;
+}
+
+#viewMyFlights h2 {
+    padding-bottom: 2rem;
+    font-size: 3rem;
+}
+#viewMyFlights h3 {
+    padding-bottom: 1rem;
+    font-size: 2rem;
+}
+#viewMyFlights div.flight-left {
+    height: 300px;
+    margin-right: 2rem;
+}
+
+#viewMyFlights div.flight-left img{
+    object-fit: cover;
 }

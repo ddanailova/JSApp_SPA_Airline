@@ -1,6 +1,6 @@
 const validateForm = function () {
 
-    const user = function (selector) {
+    const register = function (selector) {
         $(selector).on('submit', function (ev) {
             let isFormValid = true;
             $('input').removeClass('is-invalid');
@@ -21,14 +21,40 @@ const validateForm = function () {
                 $('#validate-pass').text('The password is mandatory');
             }
 
-            if (confirmPass) {
-                if (password.val().trim() !== confirmPass.val().trim()) {
-                    isFormValid = false;
-                    password.addClass('is-invalid');
-                    confirmPass.addClass('is-invalid');
-                    $('#validate-pass').text('The passwords should match');
-                    $('#validate-checkPass').text('The passwords should match');
-                }
+            if (password.val().trim() !== confirmPass.val().trim()) {
+                isFormValid = false;
+                password.addClass('is-invalid');
+                confirmPass.addClass('is-invalid');
+                $('#validate-pass').text('The passwords should match');
+                $('#validate-checkPass').text('The passwords should match');
+            }
+
+            if (!isFormValid) {
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
+        });
+    };
+
+    const login = function (selector) {
+        $(selector).on('submit', function (ev) {
+            let isFormValid = true;
+            $('input').removeClass('is-invalid');
+            $('.validation-massage').text('');
+            let username = $('input[name="username"]');
+            let password = $('input[name="pass"]');
+            let confirmPass = $('input[name="checkPass"]');
+
+            if (username.val().trim().length < 5) {
+                isFormValid = false;
+                username.addClass('is-invalid');
+                $('#validate-username').text('The username must be more then 5 symbols');
+            }
+
+            if (password.val().trim().length === 0) {
+                isFormValid = false;
+                password.addClass('is-invalid');
+                $('#validate-pass').text('The password is mandatory');
             }
 
             if (!isFormValid) {
@@ -59,9 +85,9 @@ const validateForm = function () {
             $('.validation-massage').text('');
             let destination = $('input[name="destination"]');
             let origin = $('input[name="origin"]');
-            let seats=$('input[name="seats"]');
-            let cost=$('input[name="cost"]');
-            let image=$('input[name="img"]');
+            let seats = $('input[name="seats"]');
+            let cost = $('input[name="cost"]');
+            let image = $('input[name="img"]');
 
             if (destination.val().trim().length === 0) {
                 isFormValid = false;
@@ -105,7 +131,8 @@ const validateForm = function () {
     };
 
     return {
-        user,
+        register,
+        login,
         flight,
     }
 }();
